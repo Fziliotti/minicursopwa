@@ -1,0 +1,12 @@
+::-webkit-scrollbar {
+  background: #f9f9f9;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #184165;
+}
+
+iframe {
+  width: 100%;
+  min-height: 420px;
+}

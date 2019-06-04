@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/awsm_theme_pearl-lusta.min.css" />
+    <link rel="stylesheet" href="./estilo.css" />
+    <title>Minicurso PWA - Techweek 2019</title>
+
+    <script>
+      if (location.hostname === "localhost") localStorage.clear();
+      var version = "3.0.2";
+      var themes = JSON.parse(
+        '[{"title":"white","prismTheme":""},{"title":"gondola","prismTheme":"tomorrow"},{"title":"mischka","prismTheme":"okaidia"},{"title":"big-stone","prismTheme":"tomorrow"},{"title":"black","prismTheme":""},{"title":"tasman","prismTheme":""},{"title":"pastel-pink","prismTheme":""},{"title":"pearl-lusta","prismTheme":"solarizedlight"}]'
+      );
+      var storedVersion = localStorage.getItem("awsm-version");
+
+      if (version !== storedVersion) {
+        localStorage.removeItem("awsm-current-theme");
+        localStorage.removeItem("awsm-themes");
+        localStorage.setItem("awsm-version", version);
+      }
+
+      function getCSSFileName(theme) {
+        return "css/awsm_theme_" + theme + ".min.css";
+      }
+
+      function appendStyles(str) {
+        var style = document.createElement("style");
+        style.innerHTML = str;
+        document.querySelector("head").appendChild(style);
+      }
+
+      function loadTheme() {
+        var theme = localStorage.getItem("awsm-current-theme");
+
+        if (!theme || theme === "white") return;
+
+        reloadTheme(theme);
+      }
+
+      function reloadTheme(theme) {
+        var storedThemesStr = localStorage.getItem("awsm-themes");
+
+        if (!storedThemesStr) return;
+
+        var storedThemes = JSON.parse(storedThemesStr);
+
+        appendStyles(storedThemes[theme]);
+      }
+
+      loadTheme();
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Minicurso <abbr title="Progressive Web Apps">PWA</abbr> - Techweek 2019
+      </h1>
+      <p>
+        Levando os seus sites para o próximo nível.
+      </p>
+
+      <nav>
+        <ul>
+          <li><a href="#Slides">Slides</a></li>
+          <li><a href="#Recursos">Recursos</a></li>
+          <li><a href="#Avaliação">Avaliação</a></li>
+          <li><a href="#Contato">Contato</a></li>
+          <li>
+            <select id="theme-changer" onchange="updateTheme(this.value)">
+              <option value="white">white</option>
+              <option value="gondola">gondola</option>
+              <option value="mischka">mischka</option>
+              <option value="big-stone">big-stone</option>
+              <option value="black">black</option>
+              <option value="tasman">tasman</option>
+              <option value="pastel-pink">pastel-pink</option>
+              <option value="pearl-lusta" selected>pearl-lusta</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <section>
+          <h2>
+            <a id="Slides" href="#Slides" aria-hidden="true"></a>
+          </h2>
+
+          <iframe
+            src="//slides.com/fziliotti/minicursopwa/embed"
+            scrolling="no"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen
+          ></iframe>
+
+          <p>
+            Também disponível no link:
+            <a
+              target="_blank"
+              href="https://slides.com/fziliotti/minicursopwa/fullscreen"
+              >Slides do minicurso...</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2>
+            <a id="Recursos" href="#Recursos" aria-hidden="true"></a>Recursos do
+            minicurso:
+          </h2>
+          <br />
+          <ul>
+            <li>
+              <a>
+                Link para o projeto prático:
+                <a target="_blank" href="">Projeto no github</a>
+              </a>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
+        <section>
+          <h2>
+            <a id="Avaliação" href="#Avaliação" aria-hidden="true"></a>Avaliação
+            do minicurso:
+          </h2>
+          <p>
+            Por favor, avalie o minicurso para eu saber o que preciso melhorar
+            na próxima vez, elogios e críticas sempre são bem vindas! 😃
+            <br />
+            <a target="_blank" href="https://forms.gle/jUPHuNtj5u9KMjP6A"
+              >Link para avaliação</a
+            >
+          </p>
+        </section>
+
+        <section>
+          <h2>
+            <a id="Contato" href="#Contato" aria-hidden="true"></a>Contato do
+            ministrante
+          </h2>
+          <p>
+            <a target="_blank" href="https://fziliotti.github.io/"
+              >Site Pessoal</a
+            >
+          </p>
+          <p>
+            <a target="_blank" href="https://fziliotti.github.io/BlogFziliotti/"
+              >Blog Pessoal</a
+            >
+          </p>
+          <p>
+            <a target="_blank" href="https://github.com/Fziliotti/">Github</a>
+          </p>
+          <p>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/fabricioziliotti/"
+              >Linkedin</a
+            >
+          </p>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <p>
+        Desenvolvido por Fabrício Fernandes Ziliotti
+      </p>
+    </footer>
+
+    <script>
+      function loadCSS(path, cb) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", path);
+        xhr.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            cb(this.responseText);
+          }
+        };
+        xhr.send();
+      }
+
+      function updateTheme(theme) {
+        localStorage.setItem("awsm-current-theme", theme);
+        loadCSS(getCSSFileName(theme), function(text) {
+          var storedThemesStr = localStorage.getItem("awsm-themes");
+          var storedThemes = JSON.parse(storedThemesStr) || {};
+          storedThemes[theme] = text;
+
+          localStorage.setItem("awsm-themes", JSON.stringify(storedThemes));
+          reloadTheme(theme);
+        });
+      }
+
+      var theme = localStorage.getItem("awsm-current-theme");
+
+      if (theme && theme !== "white") {
+        document.getElementById("theme-changer").value = theme;
+      }
+    </script>
+  </body>
+</html>
