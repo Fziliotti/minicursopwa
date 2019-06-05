@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background: url("imgsOtimizadas/1.jpg") no-repeat;
+        background-size: contain;
+        margin: 0;
+      }
+
+      header {
+        background: #545454;
+        color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav ul li a {
+        margin-left: 2rem;
+        text-decoration: none;
+        color: #f0f0f0;
+      }
+
+      img {
+        margin-top: 4rem;
+        display: block;
+        width: 500px;
+        margin: 4rem auto 0 auto;
+      }
+
+      .bgLazy {
+        height: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="semCompressao.html">Sem Compressão</a></li>
+          <li><a href="comCompressao.html">Com Compressão</a></li>
+          <li>
+            <a href="comCompressaoeLazyLoading.html"
+              >Com Compressão e Lazy Loading</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.andreaverlicchi.eu/lazyload/demos/image_simple.html#/it/donna/mocassini_cod44727501hh.html"
+              >LazyLoadSobDemanda</a
+            >
+          </li>
+
+          <li>
+            <a href="http://dinbror.dk/blazy/?ref=github">BibliotecaBlazy</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <img class="lazy" data-src="imgsOtimizadas/1.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/2.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/3.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/4.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/5.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/6.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/7.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/8.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/11.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/12.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/13.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/14.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/15.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/16.jpg" />
+      <img class="lazy" data-src="imgsOtimizadas/17.jpg" />
+    </section>
+
+    <section class="bgLazy" data-bg="url(imgsOtimizadas/1.jpg )">aeae</section>
+    <!-- POLYFILL -->
+    <script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.0.0/dist/lazyload.min.js"></script>
+
+    <script>
+      var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazy"
+      });
+
+      var lazyLoadInstance2 = new LazyLoad({
+        elements_selector: ".bgLazy"
+      });
+
+      if (lazyLoadInstance) {
+        lazyLoadInstance.update();
+      }
+
+      if (lazyLoadInstance2) {
+        lazyLoadInstance2.update();
+      }
+    </script>
+  </body>
+</html>
