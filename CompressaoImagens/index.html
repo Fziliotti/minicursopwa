@@ -25,7 +25,6 @@
       align-items: center;
       height: 100px;
     }
-
     nav ul {
       display: flex;
       list-style: none;
@@ -38,31 +37,76 @@
       text-decoration: none;
       color: #f0f0f0;
     }
+
+    img {
+      margin-top: 4rem;
+      display: block;
+      width: 500px;
+      margin: 4rem auto 0 auto;
+    }
+
+    nav ul li a {
+      vertical-align: middle;
+      display: block;
+      text-decoration: none;
+      color: #f0f0f0;
+    }
+
+    main {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main ul {
+      list-style: none;
+    }
+
+    main ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    main ul li {
+      margin-top: 1rem;
+      background-color: gray;
+      padding: 1rem;
+    }
+
+    main ul li a:hover {
+      opacity: 0.8;
+    }
   </style>
   <body>
     <header>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="semCompressao.html">Sem Compressão</a></li>
-          <li><a href="comCompressao.html">Com Compressão</a></li>
-          <li>
-            <a href="comCompressaoeLazyLoading.html"
-              >Com Compressão e Lazy Loading</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://www.andreaverlicchi.eu/lazyload/demos/image_simple.html#/it/donna/mocassini_cod44727501hh.html"
-              >LazyLoadSobDemanda</a
-            >
-          </li>
-
-          <li>
-            <a href="http://dinbror.dk/blazy/?ref=github">BibliotecaBlazy</a>
-          </li>
         </ul>
       </nav>
     </header>
+
+    <main>
+      <ul>
+        <li><a href="semCompressao.html">Sem Compressão</a></li>
+        <li><a href="comCompressao.html">Com Compressão</a></li>
+        <li>
+          <a href="comCompressaoeLazyLoading.html"
+            >Com Compressão e Lazy Loading</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.andreaverlicchi.eu/lazyload/demos/image_simple.html#/it/donna/mocassini_cod44727501hh.html"
+            >Lazy Loading Sob Demanda</a
+          >
+        </li>
+
+        <li>
+          <a href="http://dinbror.dk/blazy/?ref=github">BibliotecaBlazy</a>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>
