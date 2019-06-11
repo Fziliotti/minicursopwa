@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="./estilo.css" />
     <title>Minicurso PWA - Techweek 2019</title>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-141810465-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-141810465-1");
+    </script>
+
     <script>
       if (location.hostname === "localhost") localStorage.clear();
       var version = "3.0.2";
